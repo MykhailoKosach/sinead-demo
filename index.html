@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinead Walsh | Director & Producer</title>
+    <title>Sinead Walsh | Irish Filmmaker</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -19,13 +19,34 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: initial; } /* Required for Lenis */
         body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
         
         /* --- NAVIGATION --- */
-        nav { position: fixed; top: 0; width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 100; mix-blend-mode: difference; }
-        .logo { font-size: 1.2rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 30px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            padding: 30px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 100; 
+            mix-blend-mode: difference; 
+        }
+        .logo { font-size: 1.2rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: white; }
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 30px; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            opacity: 0.7; 
+            transition: opacity 0.3s ease;
+        }
+        .nav-links a:hover { opacity: 1; color: var(--accent-color); }
 
         /* --- HERO --- */
         .hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
@@ -34,21 +55,39 @@
         .hero-content h1 { font-size: clamp(3rem, 10vw, 8rem); margin-bottom: 10px; line-height: 0.9; }
         .hero-content p { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gray); }
 
+        /* --- INTRO STATEMENT --- */
+        .intro-statement {
+            padding: 150px 10%;
+            text-align: center;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .intro-statement h2 {
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 1000px;
+            color: #f0f0f0;
+        }
+        .intro-statement i { color: var(--accent-color); }
+
         /* --- WORK SECTION --- */
-        .work-container { padding: 100px 0; }
+        .work-container { padding: 50px 0 100px; }
         .section-title { padding-left: 50px; font-size: 3rem; margin-bottom: 50px; }
         .horizontal-scroll { display: flex; padding-left: 50px; gap: 40px; }
         .project-card { min-width: 600px; height: 400px; background: #1a1a1a; position: relative; overflow: hidden; cursor: pointer; }
         .project-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 0.5s; }
         .project-card:hover img { filter: brightness(1); transform: scale(1.05); }
 
-        /* --- NEW: SKILLS BENTO --- */
+        /* --- SKILLS BENTO --- */
         .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 100px 50px; background: #0f0f0f; }
         .skill-item { padding: 40px; background: var(--glass); border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .skill-item:hover { border-color: var(--accent-color); }
         .skill-item h3 { color: var(--accent-color); margin-bottom: 15px; font-size: 1.5rem; }
 
-        /* --- NEW: PROFESSIONAL JOURNEY (Timeline) --- */
+        /* --- PROFESSIONAL JOURNEY --- */
         .journey-section { padding: 100px 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
         .journey-col h2 { font-size: 3rem; margin-bottom: 40px; border-bottom: 1px solid var(--accent-color); display: inline-block; }
         .timeline-item { margin-bottom: 40px; position: relative; padding-left: 20px; border-left: 1px solid #333; }
@@ -56,7 +95,7 @@
         .timeline-item .date { color: var(--accent-color); font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
         .timeline-item p { color: var(--gray); font-size: 0.95rem; margin-top: 10px; }
 
-        /* --- NEW: VOLUNTEER & ACTIVISM --- */
+        /* --- VOLUNTEER & ACTIVISM --- */
         .volunteer-section { padding: 100px 50px; background: #000; display: flex; flex-wrap: wrap; gap: 30px; }
         .vol-card { flex: 1; min-width: 300px; padding: 40px; border-top: 1px solid #333; }
         .vol-card h3 { font-style: italic; margin-bottom: 20px; }
@@ -67,20 +106,23 @@
         .contact-large:hover { color: var(--accent-color); }
 
         @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .nav-links { display: none; } /* Mobile menu can be added later */
             .skills-grid, .journey-section { grid-template-columns: 1fr; }
             .project-card { min-width: 85vw; }
             .journey-section { gap: 50px; }
+            .intro-statement { padding: 80px 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Sinead Walsh</div>
+        <a href="#" class="logo">Sinead Walsh</a>
         <div class="nav-links">
             <a href="#work">Work</a>
-            <a href="#about">Philosophy</a>
-            <a href="#experience">Journey</a>
+            <a href="#experience">Experience</a>
+            <a href="#commitments">Commitments</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -90,9 +132,15 @@
             <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-view-of-a-cloudy-sky-during-sunset-1227-large.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <p>Filmmaker • Educator • Storyteller</p>
-            <h1>Sinéad Walsh</h1>
+            <p>Director • Producer • Storyteller</p>
+            <h1>Vision in Motion.</h1>
         </div>
+    </section>
+
+    <section class="intro-statement">
+        <h2 class="serif">
+            Irish filmmaker with a passion for capturing <i>authentic human stories</i>. Combining expertise in education and digital media to create <i>impactful visual narratives</i> that highlight social issues and celebrate artistic expression.
+        </h2>
     </section>
 
     <section id="work" class="work-container">
@@ -130,7 +178,7 @@
 
     <section id="experience" class="journey-section">
         <div class="journey-col">
-            <h2 class="serif">Experience</h2>
+            <h2 class="serif">Professional</h2>
             <div class="timeline-item">
                 <span class="date">2002 — Present</span>
                 <h4>Director & Producer | Outcam Digital Ltd</h4>
@@ -149,7 +197,7 @@
         </div>
 
         <div class="journey-col">
-            <h2 class="serif">Education</h2>
+            <h2 class="serif">Educational</h2>
             <div class="timeline-item">
                 <span class="date">Trinity College Dublin</span>
                 <h4>BA in English & Art History</h4>
@@ -168,7 +216,7 @@
         </div>
     </section>
 
-    <section class="volunteer-section">
+    <section id="commitments" class="volunteer-section">
         <div style="width: 100%; margin-bottom: 30px;"><h2 class="serif" style="font-size: 3rem;">Commitments</h2></div>
         <div class="vol-card">
             <h3 class="serif">Disability Advocacy</h3>
@@ -197,13 +245,30 @@
     </footer>
 
     <script>
+        // Lenis Smooth Scroll
         const lenis = new Lenis();
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
 
+        // GSAP ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        // Horizontal Scroll
+        // Animate the intro statement
+        gsap.from(".intro-statement h2", {
+            opacity: 0,
+            y: 30,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".intro-statement",
+                start: "top 80%"
+            }
+        });
+
+        // Horizontal Scroll for Work
         gsap.to(".horizontal-scroll", {
             xPercent: -30,
             ease: "none",
@@ -215,7 +280,7 @@
             }
         });
 
-        // Simple Reveal for timeline
+        // Timeline reveals
         gsap.utils.toArray('.timeline-item').forEach(item => {
             gsap.from(item, {
                 scrollTrigger: { trigger: item, start: "top 90%" },
