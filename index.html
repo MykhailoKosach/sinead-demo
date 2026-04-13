@@ -68,33 +68,15 @@
         /* --- INTRO STATEMENT --- */
         .intro-statement { padding: 180px 10%; text-align: center; }
         .intro-text { font-size: clamp(1.5rem, 4vw, 2.8rem); line-height: 1.5; color: #f0f0f0; }
-        .highlight { color: var(--accent-color); font-style: italic; opacity: 0; filter: blur(10px); display: inline-block; transform: translateY(10px); }
+        .highlight { color: var(--accent-color); }
 
-        /* --- PORTFOLIO (CAROUSEL) --- */
-        .work-container { padding: 80px 0; overflow: hidden; }
-        .section-header { padding: 0 50px 30px; }
-        .horizontal-scroll { display: flex; padding-left: 50px; gap: 40px; }
-        
-        .project-card { 
-            min-width: 600px; 
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .project-img-wrapper {
-            width: 100%;
-            height: 400px;
-            background: #111;
-            overflow: hidden;
-            position: relative;
-        }
-        .project-img-wrapper img { 
-            width: 100%; height: 100%; object-fit: cover; 
-            filter: grayscale(1) brightness(0.5); transition: 0.8s; 
-        }
-        .project-card:hover img { filter: grayscale(0) brightness(0.8); }
-        .project-title { font-size: 2.2rem; color: var(--accent-color); }
+        /* --- PORTFOLIO --- */
+        .photo-gallery { padding: 80px 50px; }
+        .gallery-header { margin-bottom: 40px; text-align: center; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .gallery-img-wrapper { width: 100%; height: 300px; background: #111; overflow: hidden; border-radius: 4px; }
+        .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.5); transition: 0.5s ease; }
+        .gallery-img-wrapper:hover img { filter: grayscale(0); transform: scale(1.05); }
 
         /* --- SKILLS --- */
         .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; padding: 80px 50px; background: rgba(255,255,255,0.1); }
@@ -129,30 +111,8 @@
             .nav-links { display: none; }
             .burger { display: block; }
             .intro-statement { padding: 100px 25px; }
-            
-            /* CAROUSEL MODE */
-            .horizontal-scroll { 
-                padding-left: 5vw;
-                padding-right: 5vw;
-                overflow-x: scroll; 
-                scroll-snap-type: x mandatory;
-                scroll-padding-left: 5vw;
-                -webkit-overflow-scrolling: touch;
-                gap: 4vw;
-            }
-            .horizontal-scroll::-webkit-scrollbar { display: none; }
-            
-            .project-card { 
-                min-width: 80vw;
-                width: 80vw;
-                flex-shrink: 0;
-                scroll-snap-align: start; 
-            }
-            .project-img-wrapper {
-                width: 100%;
-                height: 80vw; /* 1:1 square ratio to match card width */
-            }
-            .project-title { font-size: 1.8rem; margin-top: 10px; }
+
+            .photo-gallery { padding: 40px 25px; }
 
             .skills-grid { grid-template-columns: 1fr; padding: 40px 25px; }
             .journey-section { grid-template-columns: 1fr; gap: 60px; padding: 60px 25px; }
@@ -166,7 +126,7 @@
     <nav>
         <a href="#" class="logo">Sinéad Walsh</a>
         <div class="nav-links">
-            <a href="#work">Work</a>
+            <a href="#about">About</a>
             <a href="#experience">Journey</a>
             <a href="#commitments">Commitments</a>
             <a href="#contact">Contact</a>
@@ -175,7 +135,7 @@
     </nav>
 
     <div class="mobile-menu" id="mobile-menu">
-        <a href="#work">Work</a>
+        <a href="#about">About</a>
         <a href="#experience">Journey</a>
         <a href="#commitments">Commitments</a>
         <a href="#contact">Contact</a>
@@ -191,38 +151,56 @@
         </div>
     </section>
 
-    <section class="intro-statement">
-        <h2 class="serif intro-text">
-            Irish filmmaker with a passion for capturing <span class="highlight">authentic human stories</span>. Combining expertise in education and digital media to create <span class="highlight">impactful visual narratives</span> that highlight social issues and celebrate artistic expression.
+    <section id="about" class="intro-statement" style="text-align: left; padding: 120px 10%; max-width: 1200px; margin: 0 auto;">
+        <h2 class="serif intro-text" style="font-size: 1.8rem; margin-bottom: 30px;">
+            <span class="highlight">Sinéad Walsh</span> tells visually rich stories. A graduate of Trinity College, MA Art History & English, INA Paris & RTÉ Screen Ireland Producer Director training.
+        </h2>
+        <h2 class="serif intro-text" style="font-size: 1.8rem; margin-bottom: 30px;">
+            Sinéad's work includes working with children and persons with disabilities for organisations including Centre For Independent Living, Dublin Bus & Irish Rail.
+        </h2>
+        <h2 class="serif intro-text" style="font-size: 1.8rem; margin-bottom: 30px;">
+            Sinéad also works with children with disadvantaged backgrounds documenting life on the ground in school & local community settings using observational narrative style as seen here in some <a href="https://vimeo.com/1157235968?fl=pl&fe=sh" target="_blank" style="text-decoration: underline; color: var(--accent-color);">Forest School sequences</a>.
+        </h2>
+        <h2 class="serif intro-text" style="font-size: 1.8rem; margin-bottom: 30px;">
+            Sinéad's most recent feature documentary <em>A Visual Storm</em> recently screened at Irish Film Institute 2026 & Galway International Film Fleadh 2025. <a href="https://youtu.be/ebKd-B9rWOI?is=J6MYCkvx_EMvlvBZ" target="_blank" style="text-decoration: underline; color: var(--accent-color);">Watch excerpt</a>.
+        </h2>
+        <h2 class="serif intro-text" style="font-size: 1.8rem;">
+            This film emerged from the need to bring to public attention the artwork of Italian avantgarde artist Aurelio Caminati, revealing his revitalising take on Irish landscape painting.
         </h2>
     </section>
 
-    <section id="work" class="work-container">
-        <div class="section-header"><h2 class="serif" style="font-size: 2.5rem;">Selected Portfolio</h2></div>
-        <div class="horizontal-scroll">
-            <div class="project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1000">
-                </div>
-                <h3 class="cursive project-title">The Midnight Sun</h3>
+    <section class="photo-gallery" style="padding-bottom: 40px; padding-top: 60px;">
+        <div class="gallery-header">
+            <h2 class="serif" style="font-size: 2.5rem; color: var(--accent-color);">Film & Documentary Work</h2>
+            <p style="color: var(--gray); margin-top: 10px;">Screenings, panels, and project highlights</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-img-wrapper">
+                <img src="img/galway-screening.jpg" alt="A Visual Storm, Galway logo placement">
             </div>
-            <div class="project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1000">
-                </div>
-                <h3 class="cursive project-title">Echoes of Dublin</h3>
+            <div class="gallery-img-wrapper">
+                <img src="img/ifi-screening.jpg" alt="IFI Screening Panel wide shot">
             </div>
-            <div class="project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=1000">
-                </div>
-                <h3 class="cursive project-title">Guinness: Crafting Legacy</h3>
+            <div class="gallery-img-wrapper">
+                <img src="img/sinead-screaning.jpg" alt="Sinéad and Catherine Marshall">
             </div>
-            <div class="project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1000">
-                </div>
-                <h3 class="cursive project-title">Under the Surface</h3>
+        </div>
+    </section>
+
+    <section class="photo-gallery" style="padding-top: 40px;">
+        <div class="gallery-header">
+            <h2 class="serif" style="font-size: 2.5rem; color: var(--accent-color);">Community & Education Work</h2>
+            <p style="color: var(--gray); margin-top: 10px;">Behind the scenes working with children</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-img-wrapper">
+                <img src="img/children1.jpg" alt="Working with school kids 1">
+            </div>
+            <div class="gallery-img-wrapper">
+                <img src="img/children2.jpg" alt="Working with school kids 2">
+            </div>
+            <div class="gallery-img-wrapper">
+                <img src="img/children3.jpg" alt="Working with school kids 3">
             </div>
         </div>
     </section>
@@ -284,12 +262,12 @@
     <footer id="contact">
         <div>
             <p style="color: var(--gray); text-transform: uppercase; font-size: 0.7rem; margin-bottom: 20px;">Get in touch</p>
-            <a href="mailto:hello@sineadwalsh.com" class="serif contact-trigger">hello@sineadwalsh.com</a>
+            <a href="mailto:swalshout@gmail.com" class="serif contact-trigger">swalshout@gmail.com</a>
+            <p style="font-size: 1.2rem; margin-top: 20px;">+353 85 1423778</p>
         </div>
         <div class="social-box">
-            <a href="#">Instagram</a>
             <a href="#">Vimeo</a>
-            <a href="#">IMDb</a>
+            <a href="#">LinkedIn</a>
             <p style="font-size: 0.7rem; opacity: 0.3; margin-top: 30px;">© 2026 SINÉAD WALSH</p>
         </div>
     </footer>
@@ -313,13 +291,6 @@
             });
         });
         document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', () => menu.classList.remove('active')));
-
-        // Intro Focus
-        gsap.to(".highlight", {
-            opacity: 1, y: 0, filter: "blur(0px)",
-            duration: 1.2, stagger: 0.4,
-            scrollTrigger: { trigger: ".intro-statement", start: "top 70%" }
-        });
 
         // Portfolio Scroll (Desktop Only)
         if (window.innerWidth > 768) {
